@@ -21,7 +21,7 @@ Run "node index" in the command line in the root folder of the project and follo
 - HTML
 - CSS
 - JS
-- Node.js
+- Node
 - Inquirer
 - Jest
 
