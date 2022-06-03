@@ -1,4 +1,16 @@
-# team-profile-generator
+# Team Profile Generator
+
+## Purpose
+To use node.js and inquirer to build a team webpage.
+
+## Installation
+To install this application, clone the project using http or ssh link. Use command git clone in the project folder you want to use followed by the copied link. Then run npm install to install all needed dependencies.
+
+## Usage
+Run "node index" in the command line in the root folder of the project and follow the prompts. The final html file will be created in the dist folder.
+
+## Video Walkthrough
+Click here to watch a walkthrough demonstration of the application.
 
 ## User Story
 AS A manager
@@ -23,3 +35,14 @@ WHEN I select the intern option
 THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu
 WHEN I decide to finish building my team
 THEN I exit the application, and the HTML is generated
+
+## Built With
+- HTML
+- CSS
+- JS
+- Node.js
+- Inquirer
+- Jest
+
+## Questions
+If you have any questions regarding this application, please reach out to me via <a href="mailto:hall.candice@outlook.com">email</a>
