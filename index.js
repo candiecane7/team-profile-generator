@@ -4,23 +4,51 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const generateHTML = require("./src/generateHTML");
 const fs = require("fs");
-const teamMembers = [];
+const teamMembers = {
+    Intern: [],
+    Manager: [],
+    Engineer: []
+};
 
 const questions = [
     {
         type: "input",
         name: "name",
-        message: "What is the Employee's name?"
+        message: "What is the Employee's name?",
+        validate: name => {
+            if(name){
+                return true;
+            } else {
+                console.log("You must enter a name")
+                return false;
+            }
+        }
     },
     {
         type: "input",
         name: "email",
-        message: "What is the Employee's email?"
+        message: "What is the Employee's email?",
+        validate: email => {
+            if(email){
+                return true;
+            } else {
+                console.log("You must enter an email")
+                return false;
+            }
+        }
     },
     {
         type: "input",
         name: "id",
-        message: "What is the Employee's id?"
+        message: "What is the Employee's id?",
+        validate: id => {
+            if(id){
+                return true;
+            } else {
+                console.log("You must enter ad id")
+                return false;
+            }
+        }
     },
     {
         type: "list",
@@ -37,17 +65,33 @@ const questions = [
                 return true;
             }
             return false;
+        },
+        validate: github => {
+            if(github){
+                return true;
+            } else {
+                console.log("You must enter a github username")
+                return false;
+            }
         }
     },
     {
         type: "input",
         name: "officeNumber",
-        message: "Please enter the office phone number for the Employee",
+        message: "Please enter the office number for the Employee",
         when: ({ employeeType }) => {
             if (employeeType === "Manager") {
                 return true;
             }
             return false;
+        },
+        validate: officeNumber => {
+            if(officeNumber){
+                return true;
+            } else {
+                console.log("You must enter an office number")
+                return false;
+            }
         }
     },
     {
@@ -59,6 +103,14 @@ const questions = [
                 return true;
             }
             return false;
+        },
+        validate: school => {
+            if(school){
+                return true;
+            } else {
+                console.log("You must enter a school or write NA if not applicable")
+                return false;
+            }
         }
     }
 ]
@@ -67,19 +119,19 @@ const addStaff = function () {
         .prompt(questions)
         .then(answers => {
             if (answers.employeeType === "Intern") {
-                let { Name, Email, ID, School } = answers;
-                let employee = new Intern(Name, Email, ID, School);
-                teamMembers.push(employee);
+                let { name, email, id, school } = answers;
+                let employee = new Intern(name, email, id, school);
+                teamMembers.Intern.push(employee);
             }
             if (answers.employeeType === "Manager") {
-                let { Name, Email, ID, Phone } = answers;
-                let employee = new Manager(Name, Email, ID, Phone);
-                teamMembers.push(employee);
+                let { name, email, id, officeNumber } = answers;
+                let employee = new Manager(name, email, id, officeNumber);
+                teamMembers.Manager.push(employee);
             }
             if (answers.employeeType === "Engineer") {
                 let { name, email, id, github } = answers;
                 let employee = new Engineer(name, email, id, github);
-                teamMembers.push(employee);
+                teamMembers.Engineer.push(employee);
             }
 
             addMoreStaff();
@@ -109,14 +161,15 @@ const addMoreStaff = function () {
                 addStaff();
             } else{
             const html = generateHTML(teamMembers);
+
             fs.writeFile("./dist/index.html", html, err => {
                 if (err) {
                     console.log(err)
                 }
                 console.log("Your html file has been created!");
             })
-        }
-        })
+         }
+         })
 
 }
 
