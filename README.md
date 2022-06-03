@@ -10,7 +10,7 @@ To install this application, clone the project using http or ssh link. Use comma
 Run "node index" in the command line in the root folder of the project and follow the prompts. The final html file will be created in the dist folder.
 
 ## Video Walkthrough
-[Click here](https://drive.google.com/file/d/1F3fC-GvaG1aY7UG5EIcxERroONN7I3eR/view) to watch a walkthrough demonstration of the application.
+[Click here](https://drive.google.com/file/d/1Mkg__8a7u2owzBd9t0L8LGzOuB5bN45H/view) to watch a walkthrough demonstration of the application.
 
 ## User Story
 - AS A manager
