@@ -24,9 +24,9 @@ ${team.Manager.map((manager) => {
         <h2>${manager.name}</h2>
         <h3>${manager.getRole()}</h3>
         <ul>
-            <li>ID:${manager.id}</li>
+            <li>ID: ${manager.id}</li>
             <li><a href="mailto:${manager.email}">Email: ${manager.email}</a></li>
-            <li>Office Number:${manager.phone}</li>
+            <li>Office Number: ${manager.officeNumber}</li>
         </ul>
 </div>`
 })
@@ -38,7 +38,7 @@ ${team.Engineer.map((engineer) => {
         <h2>${engineer.name}</h2>
         <h3>${engineer.getRole()}</h3>
         <ul>
-            <li>ID:${engineer.id}</li>
+            <li>ID: ${engineer.id}</li>
             <li><a href="mailto:${engineer.email}">Email: ${engineer.email}</a></li>
             <li><a href="https://github.com/${engineer.github}" target="_blank">Github: ${engineer.github}</a></li>
         </ul>
@@ -52,9 +52,9 @@ ${team.Intern.map((intern) => {
         <h2>${intern.name}</h2>
         <h3>${intern.getRole()}</h3>
         <ul>
-            <li>ID:${intern.id}</li>
+            <li>ID: ${intern.id}</li>
             <li><a href="mailto:${intern.email}">Email: ${intern.email}</a></li>
-            <li>School:${intern.school}</li>
+            <li>School: ${intern.school}</li>
         </ul>
 </div>`
 })
